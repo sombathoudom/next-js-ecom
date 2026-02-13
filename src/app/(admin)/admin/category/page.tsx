@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div>index page ladning page</div>
+    <div>Category page</div>
   )
 }
