@@ -1,4 +1,5 @@
-import { relations } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
+
 import {
   boolean,
   index,
@@ -16,7 +17,7 @@ export const posts = createTable(
     id: d.integer().primaryKey().generatedByDefaultAsIdentity(),
     name: d.varchar({ length: 256 }),
     createdById: d
-      .varchar({ length: 255 })
+      .text()
       .notNull()
       .references(() => user.id),
     createdAt: d
@@ -32,7 +33,9 @@ export const posts = createTable(
 );
 
 export const user = pgTable("user", {
-  id: text("id").primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
   emailVerified: boolean("email_verified")

@@ -1,10 +1,14 @@
 "use client";
-import React from "react";
-import UserForm, { type UserFormValues } from "../_components/user-form";
+import UserForm from "../_components/user-form";
+import { type UserFormValues } from "../_components/user-schema";
+import { api } from "@/trpc/react";
 
-export default function page() {
-  const handleSubmit = (data: UserFormValues) => {
-    console.log(data);
+export default function Page() {
+  const createUser = api.user.createUser.useMutation();
+
+  const handleSubmit = async (data: UserFormValues) => {
+    await createUser.mutateAsync(data);
   };
+
   return <UserForm onSubmit={handleSubmit} />;
 }
