@@ -2,25 +2,14 @@
 import Link from 'next/link'
 import { usePathname } from "next/navigation"
 
-import { ChevronRight, type LucideIcon } from "lucide-react"
 
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
-import {
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarMenu,
+  SidebarGroup, SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
+  SidebarMenuItem
 } from "@/components/ui/sidebar"
 import { adminNavigation } from "@/lib/navigation"
-import {isRouteActive} from "@/lib/utils"
+import { isRouteActive } from "@/lib/utils"
 export function NavMain() {
   const path = usePathname();
   return (

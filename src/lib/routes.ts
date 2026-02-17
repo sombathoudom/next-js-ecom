@@ -1,6 +1,6 @@
 const adminBase = '/admin';
 const usersBase = `${adminBase}/users`;
-
+const categoryBase = `${adminBase}/category`;
 
 export const ROUTES = {
   root: "/",
@@ -28,6 +28,25 @@ export const ROUTES = {
 
         edit: {
             path: (id: string | number) => `${usersBase}/${id}/edit`,
+            roles: ["admin"],
+            permissions: ["users.edit"],
+        },
+    },
+    category: {
+        root: {
+            path: categoryBase,
+            roles: ["admin", "manager"],
+            permissions: ["users.view"],
+        },
+
+        create: {
+            path: `${categoryBase}/create`,
+            roles: ["admin"],
+            permissions: ["users.create"],
+        },
+
+        edit: {
+            path: (id: string | number) => `${categoryBase}/${id}/edit`,
             roles: ["admin"],
             permissions: ["users.edit"],
         },

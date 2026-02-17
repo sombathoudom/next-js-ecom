@@ -1,4 +1,4 @@
-import { House, Users } from "lucide-react"
+import { Blocks, House, Users } from "lucide-react"
 import { ROUTES } from "./routes";
 
 export const adminNavigation = [
@@ -13,5 +13,11 @@ export const adminNavigation = [
     icon: Users,
     href: ROUTES.admin.users.root.path,
     roles: ROUTES.admin.users.root.roles,
+  },
+  {
+    title: "Category",
+    icon: Blocks,
+    href: ROUTES.admin.category.root.path,
+    roles: ROUTES.admin.category.root.roles,
   },
 ]

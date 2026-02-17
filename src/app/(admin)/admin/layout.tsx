@@ -14,7 +14,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { api, HydrateClient } from "@/trpc/server";
-import { Suspense } from "react";
+
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
